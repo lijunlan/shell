@@ -1,0 +1,25 @@
+#! /bin/bash
+ifs=$IFS
+IFS="|"
+if [ $# -gt 1 ] ; then
+
+	if [ $# -eq 3 ] ; then
+		if [[ $2 =~ "?" ]] ; then
+			curl -X$1 'http://localhost:9200'$2'&pretty' -d $3
+		else
+			curl -X$1 'http://localhost:9200'$2'?pretty' -d $3
+		fi
+#		echo "curl -X"$1" 'http://localhost:9200"$2"?pretty' -d ""'"$3"'"
+	else
+		if [[ $2 =~ "?" ]] ; then
+			curl -X$1 'http://localhost:9200'$2'&pretty'
+		else
+			curl -X$1 'http://localhost:9200'$2'?pretty'
+		fi 
+#		echo 'curl -X'$1' http://localhost:9200'$2'?pretty'
+	fi
+
+else 
+	echo "operate_es <method> <path> [json_data]"
+fi
+IFS=$ifs
