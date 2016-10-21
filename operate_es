@@ -2,22 +2,22 @@
 ifs=$IFS
 IFS="|"
 
-ES_HOST='localhost'
+ES_HOST='47.90.63.120'
 ES_PORT='9200'
 if [ $# -gt 1 ] ; then
 
 	if [ $# -eq 3 ] ; then
 		if [[ $2 =~ "?" ]] ; then
-			curl -X$1 $ES_HOST':'$ES_PORT$2'&pretty' -d $3
+			curl -i -X$1 $ES_HOST':'$ES_PORT$2'&pretty' -d $3
 		else
-			curl -X$1 $ES_HOST':'$ES_PORT$2'?pretty' -d $3
+			curl -i -X$1 $ES_HOST':'$ES_PORT$2'?pretty' -d $3
 		fi
 #		echo "curl -X"$1" 'http://localhost:9200"$2"?pretty' -d ""'"$3"'"
 	else
 		if [[ $2 =~ "?" ]] ; then
-			curl -X$1 $ES_HOST':'$ES_PORT$2'&pretty'
+			curl -i -X$1 $ES_HOST':'$ES_PORT$2'&pretty'
 		else
-			curl -X$1 $ES_HOST':'$ES_PORT$2'?pretty'
+			curl -i -X$1 $ES_HOST':'$ES_PORT$2'?pretty'
 		fi 
 #		echo 'curl -X'$1' http://localhost:9200'$2'?pretty'
 	fi
