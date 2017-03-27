@@ -7,7 +7,7 @@
 #mongo 47.90.63.120/mydb -u mydb -p 123456
 if [ $# = 1 ] ; then
         if [ $1 = "focus_audit" ] ; then
-        	mongo 10.10.196.6/admin -u focus_audit -p qwe123!@#
+        	mongo 10.10.196.7/admin -u dba -p gHAFE*42@jsNmh
 	elif [ $1 = "mymongo" ] ; then
         	mongo 47.90.63.120/mydb -u mydb -p 123456
 	else
